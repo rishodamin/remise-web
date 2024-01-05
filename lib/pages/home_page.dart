@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:remise_web/global_variables.dart';
+import 'package:remise_web/widgets/card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -69,10 +71,15 @@ class HomePage extends StatelessWidget {
             height: 50,
           ),
           _card("About", GlobalVariables.aboutMessage),
+          const Productcard(
+            imageUrl: "assets/karan_fencer.jpeg",
+            height: 400,
+          ),
           _card("Why Choose Remise?", GlobalVariables.whyChooseMessage),
           _card("finally...", GlobalVariables.finalMessage),
           const SizedBox(height: 50),
-          _footer(context)
+          _footer(context),
+          const SizedBox(height: 10),
         ],
       ),
     );
@@ -112,25 +119,57 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _footer(BuildContext context) {
+    final Uri termsUrl = Uri.parse(
+      'https://drive.google.com/file/d/1-H5xbhXzy_b9F0ub0PZU65K3_vZ15lqE/view',
+    );
+    final Uri privacyPolicyUrl = Uri.parse(
+      'https://drive.google.com/file/d/1-FcMRqMj-ytRY73kun8K5jzu5wnibOwD/view',
+    );
+    final Uri contactUsUrl = Uri.parse(
+      'https://drive.google.com/file/d/1-PpGHePAlmJTHdmNMEGmj-WLvn18ozzn/view',
+    );
+    final Uri shippingPolicyUrl = Uri.parse(
+      'https://drive.google.com/file/d/13W3AP1ZTcAleOOrdmGP49BJ_8On3fvJi/view',
+    );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      child: Column(
         children: [
-          GestureDetector(
-            onTap: () {},
-            child: const Text("Contact Us"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  launchUrl(contactUsUrl);
+                },
+                child: const Text("Contact Us"),
+              ),
+              GestureDetector(
+                onTap: () {
+                  launchUrl(termsUrl);
+                },
+                child: const Text("Terms & Conditions"),
+              ),
+            ],
           ),
-          const Text("|"),
-          GestureDetector(
-            onTap: () {},
-            child: const Text("Terms & Conditions"),
-          ),
-          const Text("|"),
-          GestureDetector(
-            onTap: () {},
-            child: const Text("Privacy Policy"),
-          ),
+          const SizedBox(height: 5),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  launchUrl(privacyPolicyUrl);
+                },
+                child: const Text("Privacy Policy"),
+              ),
+              GestureDetector(
+                onTap: () {
+                  launchUrl(shippingPolicyUrl);
+                },
+                child: const Text("Shipping and Delivery Policy"),
+              ),
+            ],
+          )
         ],
       ),
     );
