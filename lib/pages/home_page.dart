@@ -120,16 +120,16 @@ class HomePage extends StatelessWidget {
 
   Widget _footer(BuildContext context) {
     final Uri termsUrl = Uri.parse(
-      'https://drive.google.com/file/d/1-H5xbhXzy_b9F0ub0PZU65K3_vZ15lqE/view',
+      'https://drive.google.com/file/d/1EX5PmhabXyKUqaEoIYSo8KwzA-06Rsh3/view',
     );
     final Uri privacyPolicyUrl = Uri.parse(
-      'https://drive.google.com/file/d/1-FcMRqMj-ytRY73kun8K5jzu5wnibOwD/view',
+      'https://drive.google.com/file/d/1yEVPHfsGL-omWFm-tiwee0xehIwMhTwN/view',
     );
     final Uri contactUsUrl = Uri.parse(
-      'https://drive.google.com/file/d/1-PpGHePAlmJTHdmNMEGmj-WLvn18ozzn/view',
+      'https://drive.google.com/file/d/1AjXBll7W5A-wzd1p3Q4jXd6oHrkJ3aCY/view',
     );
     final Uri shippingPolicyUrl = Uri.parse(
-      'https://drive.google.com/file/d/13W3AP1ZTcAleOOrdmGP49BJ_8On3fvJi/view',
+      'https://drive.google.com/file/d/1VjfcCyUPHz8BAqIRRE90jGiipI4rf2s8/view',
     );
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -142,17 +142,29 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   launchUrl(contactUsUrl);
                 },
-                child: const Text("Contact Us"),
+                child: const Text(
+                  "Contact Us",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
               ),
               GestureDetector(
                 onTap: () {
                   launchUrl(termsUrl);
                 },
-                child: const Text("Terms & Conditions"),
+                child: const Text(
+                  "Terms & Conditions",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
               ),
             ],
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -160,13 +172,25 @@ class HomePage extends StatelessWidget {
                 onTap: () {
                   launchUrl(privacyPolicyUrl);
                 },
-                child: const Text("Privacy Policy"),
+                child: const Text(
+                  "Privacy Policy",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
               ),
               GestureDetector(
                 onTap: () {
                   launchUrl(shippingPolicyUrl);
                 },
-                child: const Text("Shipping and Delivery Policy"),
+                child: const Text(
+                  "Shipping and Delivery Policy",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w900,
+                  ),
+                ),
               ),
             ],
           )
